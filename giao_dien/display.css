@@ -1,0 +1,44 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: cursive;
+}
+
+.header{
+    background: url("https://www.jetsetter.com//uploads/sites/7/2018/04/lG1HB2u-.jpeg");
+    background-size: cover;
+    height: 250px;
+    font-size: 55px;
+    color: whitesmoke;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    /*width: 33.33%;*/
+    /*height: auto;*/
+    /*background-image: url("path-to-your-image.jpg");*/
+    background-position: center center;
+
+}
+
+.content{
+    display: flex;
+}
+
+.card{
+    margin: 50px 15px;
+    transition: 0.9s;
+    box-shadow: 2px 2px 4px gainsboro;
+    width: 400px;
+    height: 300px;
+}
+
+.card:hover{
+    transform: scale(1.1);
+    transition: 0.9s;
+    cursor: pointer;
+}
+
+.card img{
+    height: 60%;
+}
