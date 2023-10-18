@@ -18,6 +18,6 @@ const person = {
 // const student = [person.firstName,person.gender,person.education.degree,person.languages];
 // const newStudent = [...student];
 // console.log("firstName :" + newStudent.f )
-const {firstName, gender, education: {degree}} = person;
-const student = {firstName, gender, degree, english: "English"};
+const {firstName, gender, education: {degree},languages:[language]} = person;
+const student = {firstName, gender, degree, language};
 console.log(student)
