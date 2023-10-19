@@ -5,7 +5,6 @@ body{
 }
 
 .header{
-    background: url("https://www.jetsetter.com//uploads/sites/7/2018/04/lG1HB2u-.jpeg");
     background-size: cover;
     height: 250px;
     font-size: 55px;
@@ -17,7 +16,7 @@ body{
     /*width: 33.33%;*/
     /*height: auto;*/
     /*background-image: url("path-to-your-image.jpg");*/
-    background-position: center center;
+    background: url("https://www.jetsetter.com//uploads/sites/7/2018/04/lG1HB2u-.jpeg") center center;
 
 }
 

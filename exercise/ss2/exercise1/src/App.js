@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React from "react";
+
 const students = [
     {
         company: 'Alfreds Futterkiste',
@@ -33,26 +34,31 @@ const students = [
         country: 'Italy'
     }
 ]
+
 function App() {
-  return (
-      <div className="container">
-          <h1>Students</h1>
-          <table>
-              <tr>
-                  <th>Company</th>
-                  <th>Contact</th>
-                  <th>Country</th>
-              </tr>
-              {students.map(student => (
-                  <tr>
-                      <td>{student.company}</td>
-                      <td>{student.contact}</td>
-                      <td>{student.country}</td>
-                  </tr>
-              ))}
-          </table>
-      </div>
-  );
+    return (
+        <div className="container">
+            <h1>Students</h1>
+            <table>
+                <thead>
+                <tr>
+                    <th>Company</th>
+                    <th>Contact</th>
+                    <th>Country</th>
+                </tr>
+                </thead>
+                <tbody>
+                {students.map((student, index) => (
+                    <tr key={index}>
+                        <td>{student.company}</td>
+                        <td>{student.contact}</td>
+                        <td>{student.country}</td>
+                    </tr>
+                ))}
+                </tbody>
+            </table>
+        </div>
+    );
 }
 
 export default App;
