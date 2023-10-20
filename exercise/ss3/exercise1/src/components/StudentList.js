@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import App from "../App";
 
 class StudentList extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
             list: [
                 {
@@ -45,6 +45,7 @@ class StudentList extends Component {
                     <tbody>
                     {this.state.list.map((student) => (
                         <tr key={student.id}>
+                            <td>{student.id}</td>
                             <td>{student.name}</td>
                             <td>{student.age}</td>
                             <td>{student.address}</td>

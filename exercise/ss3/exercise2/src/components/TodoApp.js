@@ -3,8 +3,8 @@ import '../index.css';
 
 
 class TodoApp extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
             list: [],
             item: ""
