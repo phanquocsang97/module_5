@@ -7,89 +7,61 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
 
-
-
     <style>
         #form {
             background-color: #CC9933;
             margin-left: 280px;
             width: 90%;
-            margin-top: 50px;
+            padding-top: 50px;
         }
     </style>
 </head>
 <body>
-<div class="content col-lg-8 my-6 mb-0 wow fadeInUp" data-wow-delay="0.1s" style="margin-top: 2rem">
+<div class="content col-lg-8 my-6 mb-0 wow fadeInUp" data-wow-delay="0.1s" style="margin-top: 2rem;">
     <div id="form" class=" text-center p-5">
-        <h1 class="mb-4" style="color: white">Thêm mới dịch vụ</h1>
+        <h1 class="mb-4" style="color: white">Sửa hợp đồng</h1>
         <div class="row g-3">
             <!--                name-->
             <div class="col-12">
                 <div class="form-floating">
                     <input type="text" class="form-control border-0" id="name"
-                           placeholder="Tên dịch vụ">
-                    <label for="name">Tên dịch vụ</label>
+                           placeholder="Số hợp đồng">
+                    <label for="name">Số hợp đồng</label>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="form-floating">
-                    <input type="number" class="form-control border-0" id="area"
-                           placeholder="Diện tích">
-                    <label for="area">Diện tích</label>
+                    <input type="date" class="form-control border-0" id="startDate"
+                           placeholder="Ngày bắt đầu">
+                    <label for="startDate">Ngày bắt đầu</label>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="form-floating">
-                    <input type="number" class="form-control border-0" id="cost"
-                           placeholder="Chi phí thuê">
-                    <label for="cost">Chi phí thuê</label>
+                    <input type="date" class="form-control border-0" id="endDate"
+                           placeholder="Ngày kết thúc">
+                    <label for="endDate">Ngày kết thúc</label>
                 </div>
             </div>
+            <!--                CMND-->
             <div class="col-12">
                 <div class="form-floating">
-                    <input type="number" class="form-control border-0" id="peopleNumber"
-                           placeholder="Số lượng người đối đa">
-                    <label for="peopleNumber">Số lượng người đối đa</label>
+                    <input type="text" class="form-control border-0" id="deposit"
+                           placeholder="Số tiền cọc trước ">
+                    <label for="deposit">Số tiền cọc trước</label>
                 </div>
             </div>
+
+            <!--                phone-->
             <div class="col-12">
                 <div class="form-floating">
-                    <input type="text" class="form-control border-0" id="rentType"
-                           placeholder="Kiểu thuê">
-                    <label for="rentType">Kiểu thuê</label>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="form-floating">
-                    <select class="form-control border-0" id="roomType"
-                            placeholder="Tiêu chuẩn phòng" style="background-color: #ffffff">
-                        <option>Standard</option>
-                        <option>Superior</option>
-                        <option>Executive</option>
-                        <option>Deluxe</option>
-                        <option>Suite</option>
-                        <option>President</option>
-                    </select>
-                    <label for="roomType">Tiêu chuẩn phòng</label>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="form-floating">
-                    <input type="number" class="form-control border-0" id="floorNumber"
-                           placeholder="Số tầng">
-                    <label for="floorNumber">Số tầng</label>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="form-floating">
-                    <input type="number" class="form-control border-0" id="swimmingPoolArea"
-                           placeholder="Diện tích hồ bơi">
-                    <label for="swimmingPoolArea">Diện tích hồ bơi</label>
+                    <input type="text" class="form-control border-0" id="total"
+                           placeholder="Tổng tiền thanh toán">
+                    <label for="total">Tổng tiền thanh toán</label>
                 </div>
             </div>
             <div class="col-6">
-                <button class="btn btn-light w-100 py-3" type="button"><a href="facilities_list.html"
-                                                                          class="text-decoration-none">Hủy
+                <button class="btn btn-light w-100 py-3" type="button"><a href="contract_list.html" class="text-decoration-none">Hủy
                     bỏ</a></button>
             </div>
             <div class="col-6">

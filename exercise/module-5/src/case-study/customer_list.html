@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/bootstrap520/css/bootstrap.css}">
+    <script th:src="@{/bootstrap520/js/bootstrap.js}"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+</head>
+<body>
+<div>
+    <br>
+    <br>
+    <a href="customer_create.html">
+        <button style="margin-left: 10px" class="btn btn-primary">Thêm</button>
+    </a>
+    <h1 style="text-align: center">Danh sách khách hàng</h1>
+    <div style="display: inline-block; margin: 30px">
+    </div>
+    <table class="table table-striped">
+        <tr>
+            <th>STT</th>
+            <th>Họ tên</th>
+            <th>Ngày sinh</th>
+            <th>Giới tính</th>
+            <th>Số CCCD</th>
+            <th>SĐT</th>
+            <th>Email</th>
+            <th>Địa chỉ</th>
+            <th>Loại khách</th>
+            <th>Chức năng</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Nguyễn Dương</td>
+            <td>20/04/1995</td>
+            <td>Nam</td>
+            <td>20000109210</td>
+            <td>0707600447</td>
+            <td>nguyenduong@gmail.com</td>
+            <td>123 Đường ABC, Quận XYZ, TP. Đà Nẵng</td>
+            <td>Diamond</td>
+            <td><a>
+                <button class="btn btn-primary">Sửa</button>
+            </a>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                        th:attr="onclick=|showInfo(${phieu.getId()},'${phieu.code}')|">
+                    Xóa
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Trần Dương</td>
+            <td>15/05/1985</td>
+            <td>Nữ</td>
+            <td>20000109210</td>
+            <td>0766513500</td>
+            <td>tranduong@gmail.com</td>
+            <td>456 Đường DEF, Quận ABC, TP. Đà Nẵng</td>
+            <td>Platinum</td>
+            <td><a>
+                <button class="btn btn-primary">Sửa</button>
+            </a>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                        th:attr="onclick=|showInfo(${phieu.getId()},'${phieu.code}')|">
+                    Xóa
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Lê Dương</td>
+            <td>10/10/1995</td>
+            <td>Nam</td>
+            <td>20000109210</td>
+            <td>0909876543</td>
+            <td>leduong@gmail.com</td>
+            <td>789 Đường ABC, Quận GHJ, TP. Đà Nẵng</td>
+            <td>Vip</td>
+            <td><a>
+                <button class="btn btn-primary">Sửa</button>
+            </a>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                        th:attr="onclick=|showInfo(${phieu.getId()},'${phieu.code}')|">
+                    Xóa
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Phan Dương</td>
+            <td>20/04/1995</td>
+            <td>Nam</td>
+            <td>20000109210</td>
+            <td>0707600447</td>
+            <td>phanduong@gmail.com</td>
+            <td>789 Đường IJK, Quận GHJ, TP. Đà Nẵng</td>
+            <td>VVip</td>
+            <td><a>
+                <button class="btn btn-primary">Sửa</button>
+            </a>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                        th:attr="onclick=|showInfo(${phieu.getId()},'${phieu.code}')|">
+                    Xóa
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>
+<br>
+<!--Phân trang-->
+<div>
+    <nav style="margin-left: 150px" aria-label="Page navigation example">
+        <ul class="pagination" style="margin-left: 37%">
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="/phieu/delete" method="post">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Bạn muốn khách hàng có tên:<span id="usernameDelete"></span></p>
+                    <input type="text" hidden="hidden" name="deleteId" id="deleteId">
+                    <span id="deleteName">?</span>
+                    <p style="color: red"><b>Lưu ý:</b> Hoạt động này không thể hoàn tác! </p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    <button type="submit" class="btn btn-primary">Xóa</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+            <svg class="bi" width="30" height="24">
+                <use xlink:href="#bootstrap"></use>
+            </svg>
+        </a>
+        <span class="mb-3 mb-md-0 text-muted">© 2023 Furama Resort</span>
+    </div>
+
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3"><a class="text-muted" href="#">
+            <svg class="bi" width="24" height="24"><i class="fa-brands fa-facebook fa-bounce fa-2xl"
+                                                      style="color: #111212;margin: 10px 35px -6px -15px;"></i></svg>
+        </a></li>
+        <li class="ms-3"><a class="text-muted" href="#">
+            <svg class="bi" width="24" height="24"><i class="fa-brands fa-instagram fa-bounce fa-2xl"
+                                                      style="color: #0f0f10;margin: 10px 5px -6px -39px;"></i></svg>
+        </a></li>
+        <li class="ms-3"><a class="text-muted" href="#">
+            <svg class="bi" width="24" height="24"><i class="fa-brands fa-slack fa-bounce fa-2xl"
+                                                      style="color: #0c0d0e;margin: 10px 35px -6px -15px;"></i></svg>
+        </a></li>
+    </ul>
+</footer>
+<script>
+    function showInfo(id, name) {
+        document.getElementById("deleteId").value = id;
+        document.getElementById("deleteName").innerText = name;
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
