@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 
+
 function Counter() {
     const [counterFirst, setCounterFirst] = useState(1);
     const [counterSecond, setCounterSecond] = useState(2);
