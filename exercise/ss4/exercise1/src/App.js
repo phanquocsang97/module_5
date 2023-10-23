@@ -1,13 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
 import React from "react";
-import {useState} from "react";
-import Counter from "./components/Counter";
+import  {CounterOne} from "./components/CounterOne";
+import  {CounterTwo} from "./components/CounterTwo";
 
 function App() {
     return (
         <>
-            <Counter/>
+            <CounterOne/>
+            <CounterTwo/>
         </>
     )
 }
