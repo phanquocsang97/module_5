@@ -7,7 +7,7 @@ function HealthForm() {
     const initValue = {
         name: "",
         identity: "",
-        // dayOfBirth: 1900,
+        dayOfBirth: 0,
         gender: "",
         nationality: "",
         company: "",
