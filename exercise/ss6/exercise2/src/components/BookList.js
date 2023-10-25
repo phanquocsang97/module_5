@@ -1,21 +1,34 @@
 import React, {useEffect, useState} from "react";
-import * as BookService from "../service/BookService"
+import * as bookService from "../service/BookService";
+import {BookDelete} from "./BookDelete";
 import {Link, NavLink} from "react-router-dom";
+import Button from "bootstrap/js/src/button";
+
 function BookList() {
 
-    const [books,setBooks] = useState([]);
+    const [books, setBooks] = useState([]);
+    const [book, setBook] = useState(null);
+    const [status, setStatus] = useState(false);
 
     useEffect(() => {
         getBook();
-    },[])
+    }, []);
 
-    console.log(books)
-
-    const getBook = async() => {
-        setBooks(await BookService.getAll())
+    const getBook = async () => {
+        setBooks(await bookService.getAll())
     }
-     return(
-        <div className="container" >
+
+    const handleModal = (data) => {
+        setStatus(true);
+        setBook(data);
+    }
+
+    const closeModel = () => {
+        setStatus(false);
+        getBook();
+    }
+    return (
+        <div className="container">
             <Link to="/create">
                 create
             </Link>
@@ -35,12 +48,22 @@ function BookList() {
                         <td>{book.id}</td>
                         <td>{book.title}</td>
                         <td>{book.quantity}</td>
-                        <td></td>
+                        <td>
+                            <Link to="/" className="btn btn-outline-secondary"
+                                  onClick={() => handleModal(book)}>Delete</Link>
+                            <Link className="btn btn-success" to={`/update/${book.id}`}>Update</Link>
+                        </td>
                     </tr>
                 ))}
                 </tbody>
             </table>
+            <BookDelete
+                show={status}
+                select={book}
+                handleClose={closeModel}
+            />
         </div>
-     )
+    )
 }
+
 export default BookList;

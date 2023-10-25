@@ -2,6 +2,8 @@ import * as BookService from "../service/BookService";
 import { useNavigate} from "react-router-dom";
 import React from "react";
 import {Form,Field, Formik} from "formik";
+import {toast} from "react-toastify";
+
 
 function BookCreate() {
 
@@ -10,11 +12,11 @@ function BookCreate() {
     const bookCreate = async (data) => {
         console.log(data);
         const status = await BookService.create(data);
-        if (status.status === 201) {
-            navigate("/");
-            alert("Success");
+        if (status === 201) {
+            navigate("/")
+            toast.success("Create Success")
         } else {
-            alert("Fail");
+            toast.warn("Create fail")
         }
     }
     const initValue = {
