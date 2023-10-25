@@ -46,14 +46,18 @@ function HealthForm() {
             .required("Required")
             .matches(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, "Invalid email address")
     }
+
+    const handleSubmit = (values) => {
+        values.gender = +values.gender;
+        console.log(values)
+        toast.success("OK");
+    }
     return (
         <>
             <Formik
                 initialValues={initValue}
                 onSubmit={(values) => {
-                    values.gender = +values.gender;
-                    toast("Success!!")
-                    console.log(values);
+                    handleSubmit(values);
                 }}
                 validationSchema={Yup.object(validateObject)}
             >

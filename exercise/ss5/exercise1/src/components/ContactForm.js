@@ -22,13 +22,17 @@ function ContactForm() {
             .matches(/^(0|\+84)\d{9,10}$/, "Please enter the correct syntax start with 0 or+84"),
 
     }
+    const handleSubmit = (values) => {
+        console.log(values)
+        alert("OK");
+    }
 
     return (
         <>
             <Formik
                 initialValues={initValue}
                 onSubmit={(values) => {
-                    console.log(values)
+                    handleSubmit(values);
                 }}
                 validationSchema={Yup.object(validateObject)}
             >
