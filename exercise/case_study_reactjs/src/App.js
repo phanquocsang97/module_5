@@ -4,19 +4,17 @@ import Header from "./components/Header";
 import React from "react";
 import Footer from "./components/Footer";
 import {Route, Routes} from "react-router-dom";
-import FacilityList from "./components/facility/FacilityList";
 import CustomerList from "./components/customer/CustomerList";
-import ContractList from "./components/contract/ContractList";
+import CustomerCreate from "./components/customer/CustomerCreate";
 
 
 function App() {
     return (
         <div>
-            <Header/>
+            {/*<Header/>*/}
             <Routes>
-                <Route path="/facilities" element={<FacilityList/>}/>
                 <Route path="/customers" element={<CustomerList/>}/>
-                <Route path="/contracts" element={<ContractList/>}/>
+                <Route path="/customers/create" element={<CustomerCreate/>}/>
             </Routes>
             <Footer/>
         </div>

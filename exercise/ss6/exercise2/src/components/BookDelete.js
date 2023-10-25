@@ -5,7 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 import React from "react";
 
 export function BookDelete(props) {
-
+    console.log(props)
     const {handleClose,show,select} = props;
 
 
@@ -25,6 +25,7 @@ export function BookDelete(props) {
 
     }
     return (show === true && (
+        <>
         <div
             className="modal show"
             style={{display: 'block', position: 'initial'}}
@@ -42,10 +43,12 @@ export function BookDelete(props) {
                     <button type="button" className="btn btn-secondary" data-bs-dismiss="modal"
                             onClick={handleClose}>Close
                     </button>
+
                     <Button variant="primary" onClick={() => deleteBook(select)}>Delete</Button>
                 </Modal.Footer>
             </Modal.Dialog>
         </div>
+            </>
         )
     )
 }

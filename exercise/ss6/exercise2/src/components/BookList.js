@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from "react";
 import * as bookService from "../service/BookService";
 import {BookDelete} from "./BookDelete";
-import {Link, NavLink} from "react-router-dom";
-import Button from "bootstrap/js/src/button";
+import {Link} from "react-router-dom";
 
 function BookList() {
 

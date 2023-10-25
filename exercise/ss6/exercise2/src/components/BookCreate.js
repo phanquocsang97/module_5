@@ -1,7 +1,7 @@
 import * as BookService from "../service/BookService";
-import { useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import React from "react";
-import {Form,Field, Formik} from "formik";
+import {Form, Field, Formik} from "formik";
 import {toast} from "react-toastify";
 
 
@@ -25,7 +25,8 @@ function BookCreate() {
         quantity: 0
     }
 
-    return (<>
+    return (
+        <>
             <Formik
                 initialValues={initValue}
                 onSubmit={(values) => {

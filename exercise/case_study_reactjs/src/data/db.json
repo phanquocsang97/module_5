@@ -1,0 +1,138 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "name": "Nguyễn Thoi",
+      "birthday": "1995-04-20",
+      "gender": 0,
+      "identity": "200001092101",
+      "phoneNumber": "0707600447",
+      "email": "nguyenduong@gmail.com",
+      "customerType": {
+        "id": 1,
+        "name": "Diamond"
+      },
+      "address": "Quảng Namm"
+    },
+    {
+      "id": 2,
+      "name": "Nguyễn Hạnh",
+      "birthday": "1995-04-20",
+      "gender": 1,
+      "identity": "200001092101",
+      "phoneNumber": "0707600447",
+      "email": "nguyenduong@gmail.com",
+      "customerType": {
+        "id": 1,
+        "name": "Diamond"
+      },
+      "address": "Quảng Nam"
+    },
+    {
+      "id": 3,
+      "name": "Nguyễn Hiền",
+      "birthday": "1995-04-20",
+      "gender": 0,
+      "identity": "200001092101",
+      "phoneNumber": "0707600447",
+      "email": "nguyenduong@gmail.com",
+      "customerType": {
+        "id": 3,
+        "name": "Gold"
+      },
+      "address": "Quảng Nam"
+    },
+    {
+      "id": 4,
+      "name": "Nguyễn Dương",
+      "birthday": "1995-04-20",
+      "gender": 0,
+      "identity": "200001092101",
+      "phoneNumber": "0707600447",
+      "email": "nguyenduong@gmail.com",
+      "customerType": {
+        "id": 5,
+        "name": "Member"
+      },
+      "address": "Quảng Namq"
+    },
+    {
+      "id": 4,
+      "name": "sang",
+      "birthday": "2023-10-13",
+      "gender": 0,
+      "identity": "200012342001",
+      "phoneNumber": "0766513501",
+      "email": "myhanhh6301@gmail.com",
+      "customerType": {
+        "id": 4,
+        "name": "Silver"
+      },
+      "address": "90 Lý Thái Tổ"
+    },
+    {
+      "id": 5,
+      "name": "Nguyễn Dương",
+      "birthday": "2023-10-08",
+      "gender": "0",
+      "identity": "200012342002",
+      "phoneNumber": "0766513501",
+      "email": "nguyenduong@gmail.com",
+      "customerType": {
+        "id": 3,
+        "name": "Gold"
+      },
+      "address": "Đà Nẵng"
+    },
+    {
+      "name": "Nguyễn Lien",
+      "birthday": "2023-10-08",
+      "gender": "0",
+      "identity": "200012342002",
+      "phoneNumber": "0766513501",
+      "email": "nguyenduong@gmail.com",
+      "customerType": {
+        "id": 4,
+        "name": "Silver"
+      },
+      "address": "Đà Nẵng",
+      "id": 5
+    },
+    {
+      "name": "lien",
+      "birthday": "2023-10-05",
+      "gender": "1",
+      "identity": "200012342001",
+      "phoneNumber": "0766513500",
+      "email": "nguyenduong@gmail.com",
+      "customerType": {
+        "id": 4,
+        "name": "Silver"
+      },
+      "address": "122 Dien Bien Phu",
+      "id": 6
+    }
+  ],
+  "customerType": [
+    {
+      "id": 1,
+      "name": "Diamond"
+    },
+    {
+      "id": 2,
+      "name": "Platinum"
+    },
+    {
+      "id": 3,
+      "name": "Gold"
+    },
+    {
+      "id": 4,
+      "name": "Silver"
+    },
+    {
+      "id": 5,
+      "name": "Member"
+    }
+  ]
+}
