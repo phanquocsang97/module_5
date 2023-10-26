@@ -9,14 +9,15 @@ function ContractList() {
     const [contracts, setContracts] = useState([]);
     const [contract, setContract] = useState(null);
     const [isOpen, setIsOpen] = useState(false);
+    const [nameSearch,setNameSearch] = useState("");
 
 
     useEffect(() => {
         getContract();
-    }, [])
+    }, [nameSearch]);
 
     const getContract = async () => {
-        const response = await contractService.getAll();
+        const response = await contractService.getAll(nameSearch);
         setContracts(response);
     }
 
@@ -51,6 +52,7 @@ function ContractList() {
             <Link to="/contracts/create" className="btn btn-outline-primary">
                 Create
             </Link>
+            <input type="text" onChange={(event) => setNameSearch(event.target.value)}/>
             <table className="table table-striped" style={{width: "100%"}}>
                 <thead>
                 <tr>
@@ -64,7 +66,8 @@ function ContractList() {
                 </tr>
                 </thead>
                 <tbody>
-                {contracts.map((contract, index) => (
+                {contracts.length!== 0 ?
+                    contracts.map((contract, index) => (
                     <tr key={index}>
                         <td>{index + 1}</td>
                         <td>{contract.contractNumber}</td>
@@ -84,7 +87,11 @@ function ContractList() {
                             </Link>
                         </td>
                     </tr>
-                ))}
+                ))
+                :(
+                        <td colSpan="10" style={{textAlign: "center", fontSize: "25px"}}>No Data</td>
+                    )
+                }
                 </tbody>
             </table>
             {isOpen && <ModalDeleteContract isOpen={isOpen}
