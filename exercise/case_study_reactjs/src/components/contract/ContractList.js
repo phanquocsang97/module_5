@@ -1,11 +1,29 @@
-import React from "react";
-import {getAll} from "../../service/contract/contract_service";
+import React, {useEffect, useState} from "react";
+import * as contractService from "../../service/contract/contract_service";
+import {Link} from "react-router-dom";
+
 
 function ContractList() {
+    const [contracts,setContracts] = useState([]);
+    const [contract,setContract] = useState(null);
+
+    useEffect(() => {
+        getContract();
+    },[])
+
+    const getContract = async () => {
+        const response = await contractService.getAll();
+        setContracts(response);
+    }
+
+
     return (
-        <div>
-            <h1>Contract List</h1>
-            <table>
+        <div className="container-fluid" style={{minHeight: " 10px"}}>
+            <h1 style={{textAlign: "center"}}>Contract List</h1>
+            <Link to="/contracts/create" className="btn btn-outline-primary">
+                Create
+            </Link>
+            <table className="table table-striped" style={{width: "100%"}}>
                 <thead>
                 <tr>
                     <th>#</th>
@@ -13,18 +31,20 @@ function ContractList() {
                     <th>Start Day</th>
                     <th>End Day</th>
                     <th>Deposit</th>
-                    <th>Cost</th>
+                    <th>Total</th>
+                    <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                {getAll().map(contract => (
-                    <tr key={contract.id}>
-                        <td>{contract.id}</td>
+                {contracts.map((contract,index) => (
+                    <tr key={index}>
+                        <td>{index + 1}</td>
                         <td>{contract.contractNumber}</td>
-                        <td>{contract.startDay}</td>
-                        <td>{contract.endDay}</td>
+                        <td>{contract.startDate}</td>
+                        <td>{contract.endDate}</td>
                         <td>{contract.deposit}</td>
-                        <td>{contract.cost}</td>
+                        <td>{contract.total}</td>
+                        <td></td>
                     </tr>
                 ))}
                 </tbody>

@@ -1,52 +1,10 @@
 {
   "customers": [
     {
-      "id": 1,
-      "name": "Nguyễn Thoi",
-      "birthday": "1995-04-20",
-      "gender": 0,
-      "identity": "200001092101",
-      "phoneNumber": "0707600447",
-      "email": "nguyenduong@gmail.com",
-      "customerType": {
-        "id": 1,
-        "name": "Diamond"
-      },
-      "address": "Quảng Namm"
-    },
-    {
-      "id": 2,
-      "name": "Nguyễn Hạnh",
-      "birthday": "1995-04-20",
-      "gender": 1,
-      "identity": "200001092101",
-      "phoneNumber": "0707600447",
-      "email": "nguyenduong@gmail.com",
-      "customerType": {
-        "id": 1,
-        "name": "Diamond"
-      },
-      "address": "Quảng Nam"
-    },
-    {
-      "id": 3,
-      "name": "Nguyễn Hiền",
-      "birthday": "1995-04-20",
-      "gender": 0,
-      "identity": "200001092101",
-      "phoneNumber": "0707600447",
-      "email": "nguyenduong@gmail.com",
-      "customerType": {
-        "id": 3,
-        "name": "Gold"
-      },
-      "address": "Quảng Nam"
-    },
-    {
       "id": 4,
       "name": "Nguyễn Dương",
       "birthday": "1995-04-20",
-      "gender": 0,
+      "gender": "1",
       "identity": "200001092101",
       "phoneNumber": "0707600447",
       "email": "nguyenduong@gmail.com",
@@ -111,6 +69,62 @@
       },
       "address": "122 Dien Bien Phu",
       "id": 6
+    },
+    {
+      "id": 14,
+      "name": "Phan Quốc Sang",
+      "birthday": "1997-10-03",
+      "gender": 0,
+      "identity": "044069009167",
+      "phoneNumber": "0901969899",
+      "email": "anhtuanle0054@gmail.com",
+      "customerType": {
+        "id": 2,
+        "name": "Platinum"
+      },
+      "address": "123 Azc Azcc"
+    },
+    {
+      "id": 16,
+      "name": "Thôi gà",
+      "birthday": "2000-12-03",
+      "gender": 0,
+      "identity": "044069009167",
+      "phoneNumber": "0901969897",
+      "email": "sangphan0310@gmail.com",
+      "customerType": {
+        "id": 2,
+        "name": "Platinum"
+      },
+      "address": "123 Azc Azcc"
+    },
+    {
+      "id": 18,
+      "name": "liên",
+      "birthday": "1999-10-20",
+      "gender": 0,
+      "identity": "044069009167",
+      "phoneNumber": "0901969898",
+      "email": "anhtuanle0054@gmail.com",
+      "customerType": {
+        "id": 1,
+        "name": "Diamond"
+      },
+      "address": "123 Azc Azcc"
+    },
+    {
+      "name": "Hạnh Gà quá",
+      "birthday": "2000-11-11",
+      "gender": 0,
+      "identity": "044069009167",
+      "phoneNumber": "0901969898",
+      "email": "sangphan0310@gmail.com",
+      "customerType": {
+        "id": 1,
+        "name": "Diamond"
+      },
+      "address": "13100 Gulf Fwy",
+      "id": 19
     }
   ],
   "customerType": [
@@ -133,6 +147,48 @@
     {
       "id": 5,
       "name": "Member"
+    }
+  ],
+  "contracts": [
+    {
+      "id": 2,
+      "contractNumber": "HD-001",
+      "startDate": "1999-11-10",
+      "endDate": "2000-10-20",
+      "deposit": 1009990,
+      "total": 19220000
+    },
+    {
+      "id": 3,
+      "contractNumber": "HD-001",
+      "startDate": "1999-11-10",
+      "endDate": "2000-10-20",
+      "deposit": 1009990,
+      "total": 19220000
+    },
+    {
+      "id": 4,
+      "contractNumber": "HD-001",
+      "startDate": "1999-11-10",
+      "endDate": "2000-10-20",
+      "deposit": 1009990,
+      "total": 19220000
+    },
+    {
+      "id": 5,
+      "contractNumber": "HD-001",
+      "startDate": "1999-11-10",
+      "endDate": "2000-10-20",
+      "deposit": 1009990,
+      "total": 19220000
+    },
+    {
+      "contractNumber": "HD-005",
+      "startDate": "1999-10-03",
+      "endDate": "1999-10-03",
+      "deposit": 1000000,
+      "total": 1100000,
+      "id": 6
     }
   ]
 }

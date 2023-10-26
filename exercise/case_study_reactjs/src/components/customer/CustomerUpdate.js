@@ -1,17 +1,21 @@
-import {Link, useNavigate} from "react-router-dom";
-import * as Yup from "yup";
-import * as customerService from "../../service/customer/customer_service";
-import {ErrorMessage, Field, Form, Formik} from "formik";
+import {Link, useNavigate, useParams} from "react-router-dom";
 import React, {useEffect, useState} from "react";
+import * as customerService from "../../service/customer/customer_service"
 import {toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {ErrorMessage, Field, Form, Formik} from "formik";
+import * as Yup from "yup";
 
-function CustomerCreate() {
+export function CustomerUpdate() {
     const navigate = useNavigate();
+    const [customer, setCustomer] = useState();
     const [types, setTypes] = useState([]);
+    const {id} = useParams();
+
     useEffect(() => {
-        listCustomerType();
-    }, []);
+        findById();
+        listCustomerType()
+    },[id])
 
     const listCustomerType = async () => {
         try {
@@ -22,20 +26,31 @@ function CustomerCreate() {
             toast.warn("Fail");
         }
     }
-    const initValue = {
-        name: "",
-        birthday: "",
-        gender: 0,
-        identity: "",
-        phoneNumber: "",
-        email: "",
-        customerType: JSON.stringify({
-            id: 1,
-            name: "Diamond"
-        }),
-        address: ""
-    }
 
+    const findById = async () => {
+        try {
+            const response = await customerService.findById(id);
+            setCustomer(response);
+        } catch (e) {
+            toast.warn("Cant Find Id");
+        }
+    }
+    console.log(customer);
+
+    const update = async (customer) => {
+        try {
+            const response = await customerService.updateCustomer(customer);
+            console.log(response);
+            if (response.status === 200){
+                toast.success("Update Success");
+                navigate("/customers");
+            }else {
+                toast.warn("Update Fail");
+            }
+        }catch (e) {
+            toast.warn("Update Fail");
+        }
+    }
     const validateObject = {
         name: Yup.string()
             .required("Please input!!!"),
@@ -54,34 +69,21 @@ function CustomerCreate() {
         address: Yup.string()
             .required("Please Input!!!")
     }
-    const create = async (customer) => {
-        try {
-            const response = {...customer, customerType: JSON.parse(customer.customerType)}
-            const newCustomer = await customerService.create(response);
-            if (newCustomer.status === 201) {
-                toast.success("Create Success");
-                // alert("Create Success");
-                navigate("/customers");
-            } else {
-                toast.warn("Create Fail");
-                // alert("Create Fail");
-                navigate("/customers");
-            }
-        } catch (e) {
-            toast.warn("Create Fail");
-        }
 
+    if (!customer){
+        return null;
     }
+
     return (
         <>
             <Formik
-                initialValues={initValue}
+                initialValues={customer}
                 onSubmit={(values) => {
-                    create(values);
+                    update(values);
                 }}
                 validationSchema={Yup.object(validateObject)}>
                 <div className='container'>
-                    <h1 style={{textAlign: "center"}}>Create Customer</h1>
+                    <h1 style={{textAlign: "center"}}>Update Customer</h1>
                     <Form>
                         <div className='mb-3'>
                             <label htmlFor='name' className='form-label'>Name</label>
@@ -137,7 +139,6 @@ function CustomerCreate() {
                             <Field type='text' name="address" className='form-control' id='address'/>
                             <ErrorMessage name="address" component="span" style={{color: "red"}}/>
                         </div>
-                        {/*<button type='submit' className='btn btn-primary' style={{marginLeft:"520px"}}>Submit</button>*/}
                         <div className="d-flex justify-content-center mt-2">
                             <Link to="/customers">
                                 <button className="btn btn-warning" >Cancel</button>
@@ -150,5 +151,3 @@ function CustomerCreate() {
         </>
     )
 }
-
-export default CustomerCreate;

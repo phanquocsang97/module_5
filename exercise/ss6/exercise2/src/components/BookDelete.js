@@ -22,7 +22,6 @@ export function BookDelete(props) {
             handleClose();
             toast("Delete Fail");
         }
-
     }
     return (show === true && (
         <>
