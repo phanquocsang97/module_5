@@ -1,0 +1,44 @@
+{
+  "covid": [
+    {
+      "id": 1,
+      "date": "2020-01-22",
+      "confirmed": 0,
+      "active": 0,
+      "recovered": 0,
+      "deaths": 0
+    },
+    {
+      "id": 2,
+      "date": "2020-01-23",
+      "confirmed": 2,
+      "active": 2,
+      "recovered": 0,
+      "deaths": 0
+    },
+    {
+      "id": 3,
+      "date": "2020-01-24",
+      "confirmed": 2,
+      "active": 2,
+      "recovered": 0,
+      "deaths": 0
+    },
+    {
+      "id": 4,
+      "date": "2020-01-26",
+      "confirmed": 2,
+      "active": 2,
+      "recovered": 0,
+      "deaths": 0
+    },
+    {
+      "id": 5,
+      "date": "2020-01-27",
+      "confirmed": 2,
+      "active": 2,
+      "recovered": 0,
+      "deaths": 0
+    }
+  ]
+}
