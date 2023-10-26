@@ -11,3 +11,8 @@ export const create = async (data) => {
     const response = await axios.post(URL_CONTRACT,data);
     return response;
 }
+export const deleteContract = async (id) => {
+    const response = await axios.delete(URL_CONTRACT + `/${id}`);
+    console.log(response);
+    return response.status;
+}

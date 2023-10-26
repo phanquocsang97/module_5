@@ -1,48 +1,6 @@
 {
   "customers": [
     {
-      "id": 4,
-      "name": "Nguyễn Dương",
-      "birthday": "1995-04-20",
-      "gender": "1",
-      "identity": "200001092101",
-      "phoneNumber": "0707600447",
-      "email": "nguyenduong@gmail.com",
-      "customerType": {
-        "id": 5,
-        "name": "Member"
-      },
-      "address": "Quảng Namq"
-    },
-    {
-      "id": 4,
-      "name": "sang",
-      "birthday": "2023-10-13",
-      "gender": 0,
-      "identity": "200012342001",
-      "phoneNumber": "0766513501",
-      "email": "myhanhh6301@gmail.com",
-      "customerType": {
-        "id": 4,
-        "name": "Silver"
-      },
-      "address": "90 Lý Thái Tổ"
-    },
-    {
-      "id": 5,
-      "name": "Nguyễn Dương",
-      "birthday": "2023-10-08",
-      "gender": "0",
-      "identity": "200012342002",
-      "phoneNumber": "0766513501",
-      "email": "nguyenduong@gmail.com",
-      "customerType": {
-        "id": 3,
-        "name": "Gold"
-      },
-      "address": "Đà Nẵng"
-    },
-    {
       "name": "Nguyễn Lien",
       "birthday": "2023-10-08",
       "gender": "0",
@@ -55,20 +13,6 @@
       },
       "address": "Đà Nẵng",
       "id": 5
-    },
-    {
-      "name": "lien",
-      "birthday": "2023-10-05",
-      "gender": "1",
-      "identity": "200012342001",
-      "phoneNumber": "0766513500",
-      "email": "nguyenduong@gmail.com",
-      "customerType": {
-        "id": 4,
-        "name": "Silver"
-      },
-      "address": "122 Dien Bien Phu",
-      "id": 6
     },
     {
       "id": 14,
@@ -151,14 +95,6 @@
   ],
   "contracts": [
     {
-      "id": 2,
-      "contractNumber": "HD-001",
-      "startDate": "1999-11-10",
-      "endDate": "2000-10-20",
-      "deposit": 1009990,
-      "total": 19220000
-    },
-    {
       "id": 3,
       "contractNumber": "HD-001",
       "startDate": "1999-11-10",
@@ -173,22 +109,6 @@
       "endDate": "2000-10-20",
       "deposit": 1009990,
       "total": 19220000
-    },
-    {
-      "id": 5,
-      "contractNumber": "HD-001",
-      "startDate": "1999-11-10",
-      "endDate": "2000-10-20",
-      "deposit": 1009990,
-      "total": 19220000
-    },
-    {
-      "contractNumber": "HD-005",
-      "startDate": "1999-10-03",
-      "endDate": "1999-10-03",
-      "deposit": 1000000,
-      "total": 1100000,
-      "id": 6
     }
   ]
 }

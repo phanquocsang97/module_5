@@ -1,15 +1,14 @@
-import React, {useEffect, useState} from 'react';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
+import React, {useEffect, useState} from "react";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
 
 function ModalDeleteContract(props) {
-    const {isOpen, customer, onCloseModal, handleSubmit} = props;
+    const {isOpen, contract, onCloseModal, handleSubmit} = props;
+    const [show, setShow] = useState(false);
 
     useEffect(() => {
-        setShow(isOpen)
-    }, [isOpen, customer, customer.id])
-
-    const [show, setShow] = useState(false);
+        setShow(isOpen);
+    }, [isOpen, contract, contract.id])
 
     const handleClose = () => {
         setShow(false);
@@ -22,18 +21,17 @@ function ModalDeleteContract(props) {
                 <Modal.Header closeButton>
                     <Modal.Title>Delete</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Do you want to delete {customer.name}?</Modal.Body>
+                <Modal.Body>Do you want to delete {contract.contractNumber}?</Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={() => handleSubmit(customer.id)}>
+                    <Button variant="primary" onClick={() => handleSubmit(contract.id)}>
                         Delete
                     </Button>
                 </Modal.Footer>
             </Modal>
         </>
-    );
+    )
 }
-
 export default ModalDeleteContract;

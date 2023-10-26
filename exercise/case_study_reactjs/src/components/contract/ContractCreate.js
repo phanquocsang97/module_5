@@ -8,16 +8,7 @@ import {ErrorMessage, Field, Form, Formik} from "formik";
 
 function ContractCreate() {
     const navigate = useNavigate();
-    const contractCreate = async (data) => {
-        const status = await contractService.create(data)
-        if (status === 201) {
-            navigate("/contracts");
-            toast.success("Create Success");
-        } else {
-            navigate("/contracts")
-            toast.warn("Create Fail");
-        }
-    }
+
     const initValue = {
         contractNumber: "",
         startDate: "",

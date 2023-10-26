@@ -1,21 +1,49 @@
 import React, {useEffect, useState} from "react";
 import * as contractService from "../../service/contract/contract_service";
 import {Link} from "react-router-dom";
+import {toast} from "react-toastify";
+import ModalDeleteContract from "./ModalDeleteContract";
 
 
 function ContractList() {
-    const [contracts,setContracts] = useState([]);
-    const [contract,setContract] = useState(null);
+    const [contracts, setContracts] = useState([]);
+    const [contract, setContract] = useState(null);
+    const [isOpen, setIsOpen] = useState(false);
+
 
     useEffect(() => {
         getContract();
-    },[])
+    }, [])
 
     const getContract = async () => {
         const response = await contractService.getAll();
         setContracts(response);
     }
 
+    const handleModal = (data) => {
+        setIsOpen(true);
+        setContract(data);
+    }
+
+    const onCloseModal = () => {
+        setIsOpen(false);
+        getContract();
+    }
+
+    const handleSubmit = async (id) => {
+        console.log(id);
+        try {
+            const status = await contractService.deleteContract(id);
+            if (status === 200) {
+                toast.success("Delete Success");
+            } else {
+                toast.warn("Delete Fail");
+            }
+        } catch (e) {
+
+        }
+        onCloseModal();
+    }
 
     return (
         <div className="container-fluid" style={{minHeight: " 10px"}}>
@@ -32,11 +60,11 @@ function ContractList() {
                     <th>End Day</th>
                     <th>Deposit</th>
                     <th>Total</th>
-                    <th>Action</th>
+                    <th style={{textAlign: "center"}}>Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                {contracts.map((contract,index) => (
+                {contracts.map((contract, index) => (
                     <tr key={index}>
                         <td>{index + 1}</td>
                         <td>{contract.contractNumber}</td>
@@ -44,12 +72,25 @@ function ContractList() {
                         <td>{contract.endDate}</td>
                         <td>{contract.deposit}</td>
                         <td>{contract.total}</td>
-                        <td></td>
+                        <td>
+                            <Link to="/contracts" className="btn btn-outline-secondary"
+                                  onClick={() => handleModal(contract)}>
+                                Delete
+                            </Link>
+                        </td>
                     </tr>
                 ))}
                 </tbody>
             </table>
+            {isOpen && <ModalDeleteContract isOpen={isOpen}
+                                    contract={contract}
+                                    onCloseModal={onCloseModal}
+                                    handleSubmit={handleSubmit}
+            />
+
+            }
         </div>
     )
 }
+
 export default ContractList;
