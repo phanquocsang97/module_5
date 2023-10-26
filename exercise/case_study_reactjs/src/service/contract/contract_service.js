@@ -16,3 +16,14 @@ export const deleteContract = async (id) => {
     console.log(response);
     return response.status;
 }
+
+export const updateContract = async (contract) => {
+    const response = await axios.put(URL_CONTRACT + `/${contract.id}` ,contract);
+    console.log(response);
+    return response;
+}
+
+export const findById = async (id) => {
+    const response = await axios.get(URL_CONTRACT + `/${id}`);
+    return response.data;
+}

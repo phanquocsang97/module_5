@@ -60,7 +60,7 @@ function ContractList() {
                     <th>End Day</th>
                     <th>Deposit</th>
                     <th>Total</th>
-                    <th style={{textAlign: "center"}}>Action</th>
+                    <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -73,7 +73,12 @@ function ContractList() {
                         <td>{contract.deposit}</td>
                         <td>{contract.total}</td>
                         <td>
-                            <Link to="/contracts" className="btn btn-outline-secondary"
+                            <Link className="btn - btn-outline-success"
+                                  to={`/contracts/update/${contract.id}`}>
+                                Update
+                            </Link>
+                            <Link style={{marginLeft: "10px"}}
+                                  to="/contracts" className="btn btn-outline-secondary"
                                   onClick={() => handleModal(contract)}>
                                 Delete
                             </Link>
@@ -83,9 +88,9 @@ function ContractList() {
                 </tbody>
             </table>
             {isOpen && <ModalDeleteContract isOpen={isOpen}
-                                    contract={contract}
-                                    onCloseModal={onCloseModal}
-                                    handleSubmit={handleSubmit}
+                                            contract={contract}
+                                            onCloseModal={onCloseModal}
+                                            handleSubmit={handleSubmit}
             />
 
             }
