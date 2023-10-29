@@ -22,7 +22,9 @@ function ModalDeleteContract(props) {
                 <Modal.Header closeButton>
                     <Modal.Title>Delete</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Do you want to delete {customer.name}?</Modal.Body>
+                <Modal.Body>Do you want to delete <b style={{color:"red"}}>{customer.name}</b>?
+                <p style={{color: "red"}}>  Notice: This action cannot be undone!</p>
+                </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
                         Close

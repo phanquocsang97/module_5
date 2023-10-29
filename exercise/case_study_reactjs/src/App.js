@@ -9,6 +9,9 @@ import Footer from "./components/Footer";
 import ContractList from "./components/contract/ContractList";
 import ContractCreate from "./components/contract/ContractCreate";
 import {ContractUpdate} from "./components/contract/ContractUpdate";
+import {VillaList} from "./components/facility/villa/VillaList";
+import {VillaCreate} from "./components/facility/villa/VIllaCreate";
+import {VillaUpdate} from "./components/facility/villa/VillaUpdate";
 
 
 function App() {
@@ -22,6 +25,9 @@ function App() {
                 <Route path="/contracts" element={<ContractList/>}/>
                 <Route path="/contracts/create" element={<ContractCreate/>}/>
                 <Route path="/contracts/update/:id" element={<ContractUpdate/>}/>
+                <Route path="/villas" element={<VillaList/>}/>
+                <Route path="/villas/create" element={<VillaCreate/>}/>}
+                <Route path="/villas/update/:id" element={<VillaUpdate/>}/>}
             </Routes>
             <Footer/>
             <ToastContainer/>

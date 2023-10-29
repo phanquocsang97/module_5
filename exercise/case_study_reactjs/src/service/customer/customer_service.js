@@ -4,11 +4,11 @@ import axios from "axios";
 const URL_CUSTOMER = "http://localhost:8080/customers";
 const URl_CUSTOMER_TYPE = "http://localhost:8080/customerType";
 
-export const getAll = async (data) => {
-    console.log(data)
-    const response = await axios.get(URL_CUSTOMER + "?name_like=" + `${data}`);
+export const getAll = async (data1,data2,page) => {
+    console.log(data1);
+    const response = await axios.get(URL_CUSTOMER + "?name_like=" + `${data1}` + "&" + "customerType.name_like=" + `${data2}` + `&_page=${page}` + `&_limit=5` + "&_sort=id&_order=desc");
     console.log(response)
-    return response.data;
+    return response;
 }
 
 export const create = async (data) => {

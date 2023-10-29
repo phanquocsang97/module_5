@@ -2,8 +2,8 @@ import axios from "axios";
 
 const URL_CONTRACT = "http://localhost:8080/contracts";
 
-export const getAll = async (data) => {
-    const response = await axios.get(URL_CONTRACT + "?contractNumber_like=" + `${data}`);
+export const getAll = async (data1,data2) => {
+    const response = await axios.get(URL_CONTRACT + "?contractNumber_like=" + `${data1}` + "&" + "startDate_like=" + `${data2}` + "&_sort=id&_order=desc");
     return response.data;
 }
 

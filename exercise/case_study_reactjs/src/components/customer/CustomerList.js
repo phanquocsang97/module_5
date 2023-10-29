@@ -4,19 +4,32 @@ import {Link} from "react-router-dom";
 import ModalDelete from "./ModalDelete";
 import {toast} from "react-toastify";
 
+
 function CustomerList() {
     const [customers, setCustomers] = useState([]);
     const [customer, setCustomer] = useState(null);
     const [isOpen, setIsOpen] = useState(false);
     const [nameSearch, setNameSearch] = useState("");
+    // const [typeSearch, setTypeSearch] = useState("");
+    const [pages, setPages] = useState(1);
+    const [total, setTotal] = useState(0);
+    const [customerType, setCustomerType] = useState({});
+    const [types, setTypes] = useState([]);
 
     useEffect(() => {
-        getCustomer();
-    }, [nameSearch]);
+        getCustomer()
+        listCustomerType()
+    }, [nameSearch, customerType, pages]);
 
     const getCustomer = async () => {
-        const res = await customerService.getAll(nameSearch);
-        setCustomers(res);
+        const res = await customerService.getAll(nameSearch, customerType, pages);
+        setTotal(res.headers["x-total-count"]);
+        console.log(res)
+        setCustomers(res.data);
+    }
+    const listCustomerType = async () => {
+        const res = await customerService.getTypeCustomer();
+        setTypes(res);
     }
 
     const handleModal = (data) => {
@@ -44,6 +57,9 @@ function CustomerList() {
         }
         onCloseModal();
     }
+    // const handlePageClick = () => {
+    //
+    // }
 
     return (
 
@@ -52,7 +68,17 @@ function CustomerList() {
             <Link to="/customers/create" className="btn btn-outline-primary">
                 Create
             </Link>
-            <input type="text" onChange={(evt) => setNameSearch(evt.target.value)}/>
+            <input type="text" onChange={(evt) => setNameSearch(evt.target.value)} placeholder="Enter name customer"/>
+            {/*<input type="text" onChange={(evt) => setTypeSearch(evt.target.value)} placeholder="Enter type customer"/>*/}
+            <select is="select" className='form-control' name="customerType" style={{
+                textAlign: 'center'
+            }} onChange={(event) => setCustomerType(event.target.value)}>
+                {
+                    types.map(type => (
+                        <option key={type.id} value={type.name}>{type.name}</option>
+                    ))
+                }
+            </select>
             <table className="table table-striped" style={{width: "100%"}}>
                 <thead>
                 <tr>
@@ -98,10 +124,34 @@ function CustomerList() {
                 }
                 </tbody>
             </table>
+            {/*<ReactPaginate*/}
+            {/*    breakLabel="..."*/}
+            {/*    nextLabel="next >"*/}
+            {/*    onPageChange={handlePageClick}*/}
+            {/*    pageRangeDisplayed={5}*/}
+            {/*    pageCount={50}*/}
+            {/*    previousLabel="< previous"*/}
+            {/*    renderOnZeroPageCount={null}*/}
+            {/*    pageClassName="page-item"*/}
+            {/*    pageLinkClassName="page-link"*/}
+            {/*    previousClassName="page-item"*/}
+            {/*    previousLinkClassName="page-link"*/}
+            {/*    nextClassName="page-item"*/}
+            {/*    nextLinkClassName="page-link"*/}
+            {/*    breakClassName="page-item"*/}
+            {/*    breakLinkClassName="page-link"*/}
+            {/*    containerClassName="pagination"*/}
+            {/*    activeClassName="active"*/}
+            {/*/>*/}
             {isOpen && <ModalDelete isOpen={isOpen} customer={customer}
                                     onCloseModal={onCloseModal}
                                     handleSubmit={handleSubmit}
             />}
+            {/*<PaginationCustomer*/}
+            {/*    setPages={setPages}*/}
+            {/*    total={total}*/}
+            {/*    page={pages}*/}
+            {/*/>*/}
         </div>
     )
 }

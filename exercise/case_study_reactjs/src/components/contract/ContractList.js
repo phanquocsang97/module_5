@@ -10,14 +10,15 @@ function ContractList() {
     const [contract, setContract] = useState(null);
     const [isOpen, setIsOpen] = useState(false);
     const [nameSearch,setNameSearch] = useState("");
+    const [startDateSearch,setStartDateSearch] = useState("");
 
 
     useEffect(() => {
         getContract();
-    }, [nameSearch]);
+    }, [nameSearch,startDateSearch]);
 
     const getContract = async () => {
-        const response = await contractService.getAll(nameSearch);
+        const response = await contractService.getAll(nameSearch,startDateSearch);
         setContracts(response);
     }
 
@@ -45,6 +46,10 @@ function ContractList() {
         }
         onCloseModal();
     }
+    const VND = new Intl.NumberFormat('vi-VN',{
+        style : "currency",
+        currency : "VND"
+    })
 
     return (
         <div className="container-fluid" style={{minHeight: " 10px"}}>
@@ -52,7 +57,8 @@ function ContractList() {
             <Link to="/contracts/create" className="btn btn-outline-primary">
                 Create
             </Link>
-            <input type="text" onChange={(event) => setNameSearch(event.target.value)}/>
+            <input type="text" onChange={(event) => setNameSearch(event.target.value)} placeholder="Enter Contract Number"/>
+            <input type="text" onChange={(event) => setStartDateSearch(event.target.value)} placeholder="Enter Start Date"/>
             <table className="table table-striped" style={{width: "100%"}}>
                 <thead>
                 <tr>
@@ -73,8 +79,8 @@ function ContractList() {
                         <td>{contract.contractNumber}</td>
                         <td>{contract.startDate}</td>
                         <td>{contract.endDate}</td>
-                        <td>{contract.deposit}</td>
-                        <td>{contract.total}</td>
+                        <td>{VND.format(contract.deposit)}</td>
+                        <td>{VND.format(contract.total)}</td>
                         <td>
                             <Link className="btn - btn-outline-success"
                                   to={`/contracts/update/${contract.id}`}>
